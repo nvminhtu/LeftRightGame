@@ -1,0 +1,44 @@
+<html ng-app="leftRightGame">
+    <head>
+        <title>Left Right Game</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Include for Angular at bottom of page for performance -->
+        <script type="text/javascript" src="components/js/angular.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row text-center game-info" ng-controller="GameController as gameController">                
+                <div id="buttons">
+                    <button class="game-button" ng-click="startGame()">Start</button>
+                    <button id="game-button" ng-click="resetGame()">Reset</button>
+                </div>
+                <div id="direction">
+                    <h2>{{gameState.direction}}</h2>
+                </div>
+                <div class="row">
+                    <div id="score" class="pull-left"><h3>Score: {{gameState.score}}</h3></div>
+                    <div id="timeRemaining" class="pull-right"><h3>Time Remaining: {{gameState.timeRemaining}}</h3></div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="left" class="game-row span6 pull-left "><h3>LEFT</h3></div>
+                <div id="right" class="game-row span6 pull-right"><h3>RIGHT</h3></div>
+            </div>
+        </div>
+
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <!-- CSS Overwrites -->
+        <link href="components/css/style.css" rel="stylesheet" type="text/css">
+
+
+    </body> 
+</html>
