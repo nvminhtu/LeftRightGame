@@ -19,11 +19,17 @@
                 if ($scope.gameState.timeRemaining > 0) {
                     $scope.gameState.timeRemaining--;
                 }
+                if ($scope.gameState.timeRemaining === 0) {
+                    $scope.gameState.gameOn = false;
+                    alert("Game Over. Score: " + $scope.gameState.score);
+                }
             }, 1000, 30);
             $scope.setDirection();
         }
 
-        //Stops timer, resets game state
+        //Stops timer, resets game state, takes a boolean. 
+        //If simply restarting a game and you want to pause, pass false
+        //Otherwise, pass true to gameOn.
         $scope.resetGame = function (gameOn) {
             $interval.cancel($scope.timer);
             $scope.gameState.timeRemaining = 30;
