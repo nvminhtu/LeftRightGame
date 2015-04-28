@@ -8,6 +8,9 @@
             direction: null
         };
 
+        //The directions that can be used for gameState's direction
+        $scope.directions = ["LEFT", "RIGHT"];
+
         //Start Game Timer
         $scope.startGame = function () {
             $scope.timer = $interval(function () {
@@ -24,8 +27,10 @@
             $scope.gameState.direction = null;
         }
         
-        //Handles click events
+        //Handles click events by checking if the user clicked the correct direction
+        //Then, sets a new random direction.
         $scope.handleClick = function(direction) {
+            console.log("click event registered");
             if(direction === $scope.gameState.direction) {
                 score++;
             }
@@ -35,10 +40,9 @@
           $scope.gameState.direction = $scope.setDirection();             
         }
 
-        //Sets the direction of the game state
+        //Sets randomly selects LEFT or RIGHT for gameState's direction
         $scope.setDirection = function(){
-            var directions = ["LEFT", "RIGHT"];
-            $scope.gameState.direction = directions[Math.round(Math.random())];
+            $scope.gameState.direction = $scope.directions[Math.round(Math.random())];
         }
    
     });
