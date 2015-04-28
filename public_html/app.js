@@ -42,7 +42,7 @@
                 else {
                     $scope.gameState.score--;
                 }
-                $scope.gameState.direction = $scope.directions[Math.round(Math.random())];
+                $scope.setDirection();
             }
 
         }
@@ -53,7 +53,5 @@
         }
 
     });
-
-
 
 })();
