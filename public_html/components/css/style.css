@@ -38,3 +38,14 @@ body {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+@media (max-width: 450px) {
+  .game-info .row {
+    margin-top: -25px;
+  }
+  .game-info .row div {
+    width: 100%;
+  }
+  .game-info .row #timeRemaining {
+    margin-top: -10px;
+  }
+}
