@@ -3,7 +3,7 @@
 
     app.controller('GameController', function ($scope, $interval) {
         $scope.gameState = {
-            timeRemaining: 0,
+            timeRemaining: 30,
             score: 0,
             direction: null,
             gameOn: false
@@ -12,22 +12,24 @@
         //The directions that can be used for gameState's direction
         $scope.directions = ["LEFT", "RIGHT"];
 
-        //Start Game Timer
+        //Reset game to original state, start timer.
         $scope.startGame = function () {
-            $scope.gameState.gameOn = true;
+            $scope.resetGame(true);
             $scope.timer = $interval(function () {
-                $scope.gameState.timeRemaining--;
+                if ($scope.gameState.timeRemaining > 0) {
+                    $scope.gameState.timeRemaining--;
+                }
             }, 1000, 30);
             $scope.setDirection();
         }
 
-        //Reset the game
-        $scope.resetGame = function () {
+        //Stops timer, resets game state
+        $scope.resetGame = function (gameOn) {
             $interval.cancel($scope.timer);
             $scope.gameState.timeRemaining = 30;
             $scope.gameState.score = 0;
             $scope.gameState.direction = null;
-            $scope.gameState.gameOn = false;
+            $scope.gameState.gameOn = gameOn;
         }
 
         //Handles click events by checking if the user clicked the correct direction
