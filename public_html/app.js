@@ -10,16 +10,17 @@
 
         //Start Game Timer
         $scope.startGame = function () {
-           $scope.timer = $interval(function () {
+            $scope.timer = $interval(function () {
                 $scope.gameState.timeRemaining--;
                 console.log($scope.gameState.timeRemaining);
             }, 1000, 30);
         }
-        
+
         //Reset the game
         $scope.resetGame = function () {
             $interval.cancel($scope.timer);
             $scope.gameState.timeRemaining = 30;
+            $scope.gameState.score = 0;
             $scope.gameState.direction = null;
         }
 
